@@ -1,0 +1,71 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Maqueta volumétrica · Paisaje del Sur 3488</title>
+<style>
+:root{--bg:#f3ece0;--fg:#2a2420;--pn:rgba(255,250,240,.92);--ac:#e8472b;--ok:#2f7d4f;--bad:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1a17;--fg:#efe6d8;--pn:rgba(42,38,34,.92);--ok:#6cc08b;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#1d1a17;--fg:#efe6d8;--pn:rgba(42,38,34,.92);--ok:#6cc08b;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}html,body{height:100%;margin:0;overflow:hidden}
+body{background:var(--bg);color:var(--fg);font:13px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+#c{position:fixed;inset:0;width:100%;height:100%;touch-action:none;display:block}
+#p{position:fixed;left:10px;top:calc(10px + env(safe-area-inset-top,0px));width:min(330px,calc(100% - 20px));max-height:calc(100% - 20px - env(safe-area-inset-top,0px));overflow:auto;background:var(--pn);border-radius:12px;padding:12px 14px;box-shadow:0 2px 14px rgba(0,0,0,.2)}
+h1{font-size:15px;margin:0 0 2px}small{opacity:.75}
+.b{display:flex;gap:6px;margin:8px 0}.b button{flex:1;padding:7px 4px;border:1px solid var(--ac);background:transparent;color:var(--fg);border-radius:8px;font:inherit;cursor:pointer}
+.b button.on{background:var(--ac);color:#fff}
+table{width:100%;border-collapse:collapse;margin-top:6px}td{padding:2px 0;vertical-align:top}td:last-child{text-align:right}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+</style></head><body><canvas id="c"></canvas>
+<div id="p"><h1>Paisaje del Sur 3488 · estudio volumétrico</h1><small>Línea blanca: lindero · naranja: envolvente (−3 m). Arrastra para girar, rueda o pellizco para acercar.</small>
+<div class="b" id="bt"></div><div id="i"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const Bd=[[0,.3],[29.9,.3],[35.1,21.3],[22.1,25.7],[4.7,26.5],[-1.6,15.2]],
+En=[[2.7,3.3],[27,2.8],[31,19.2],[20.8,22],[6.9,23.8]],Q=1683,Z0=1691.35,ZM=1700.35,AREA=812.2,
+P=[[0,.3,1691.35],[15,.3,1691.2],[29.9,.3,1691.05],[-.3,4.8,1690.1],[-.9,10.4,1688.7],[4.7,26.5,1687.25],[33,15.3,1687.3],[35.1,21.3,1685.95],[30.5,22.5,1685.85],[26,24.3,1684.75],[20,26,1683.05]],
+TR=[[11,9.4,6,.5],[4,3,4,.35],[26.3,9.2,3,.3]];
+const hgt=(x,y)=>{let n=0,d=0;for(const[a,b,z]of P){const r=(x-a)**2+(y-b)**2+.5;n+=z/r;d+=1/r}return n/d};
+const inP=(x,y,p)=>{let o=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const[a,b]=p[i],[c,d]=p[j];if((b>y)!=(d>y)&&x<(c-a)*(y-b)/(d-b)+a)o=!o}return o};
+const AL=[
+{n:'1 · Escalonada',d:'Plataformas ortogonales desfasadas que bajan con las curvas; cada cubierta es terraza del nivel superior. Libera el guamúchil como patio.',b:[[13.4,4.2,26.2,9.8,1690.4,3.1,'a'],[14.5,5,24.5,9,1693.5,3.1,'u'],[8,11.4,27,16.8,1687.3,3.1,'b'],[9,12,25,16.6,1690.4,3.1,'u'],[7.5,17,23.5,21,1684.2,3.1,'c'],[7.5,17,23.5,21,1687.3,.3,'t']]},
+{n:'2 · Excavada con patio',d:'Masa compacta tallada alrededor del guamúchil: ala-rampa al poniente, bloque social centrado y patio abierto hacia la calle.',b:[[14.8,4.2,27,9.8,1690.4,3.1,'a'],[6.5,7,9.2,17.2,1688.4,3.1,'b'],[9.8,12.6,27.5,17.4,1687.3,3.1,'b'],[12,12.6,24,17.4,1690.4,3.1,'u'],[9.8,17.4,23.5,21,1684.2,3.1,'c'],[9.8,17.4,23.5,21,1687.3,.3,'t']]},
+{n:'3 · Espina',d:'Un eje largo de circulación sobre la ladera con barras de recámaras colgadas hacia el valle: ritmo de módulo repetido y ranuras de luz.',b:[[13.4,4.2,26.2,9.8,1690.4,3.1,'a'],[14.5,5,24,9,1693.5,3.1,'u'],[7,13.4,28,16.6,1687.3,3.1,'b'],[14,13.4,27,16.6,1690.4,3.1,'u'],[8,16.6,12,20.6,1684.2,3.1,'c'],[14,16.6,18,20.6,1684.2,3.1,'c'],[20,16.6,24,20.6,1684.2,3.1,'c'],[8,16.6,24,20.6,1687.3,.3,'t']]}];
+const COL={a:0x8c8680,b:0xb9a58a,c:0x6f6a64,u:0xd9cdb8,t:0xc4573a};
+const cv=document.getElementById('c'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,500);
+S.background=new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f3ece0');
+S.add(new THREE.HemisphereLight(0xffffff,0x8a7a66,.8));const DL=new THREE.DirectionalLight(0xffffff,.8);DL.position.set(-20,40,-15);S.add(DL);
+const g=new THREE.PlaneGeometry(44,34,88,68);g.rotateX(-Math.PI/2);g.translate(15,0,13);
+{const ps=g.attributes.position,cl=[];for(let i=0;i<ps.count;i++){const x=ps.getX(i),y=ps.getZ(i),z=hgt(x,y);ps.setY(i,z-Q);const bd=Math.floor(z/.5)%2,ins=inP(x,y,Bd);const k=ins?(bd?.8:.72):(bd?.55:.5);cl.push(k,k*(ins?.88:.95),k*(ins?.72:.9))}
+g.setAttribute('color',new THREE.Float32BufferAttribute(cl,3));g.computeVertexNormals();S.add(new THREE.Mesh(g,new THREE.MeshLambertMaterial({vertexColors:true})))}
+function ln(poly,col){const pts=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length];for(let k=0;k<30;k++){const x=a[0]+(b[0]-a[0])*k/30,y=a[1]+(b[1]-a[1])*k/30;pts.push(new THREE.Vector3(x,hgt(x,y)-Q+.12,y))}}pts.push(pts[0]);S.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:col})))}
+ln(Bd,0xffffff);ln(En,0xff6a2b);
+for(const[x,y,r,t]of TR){const h=hgt(x,y)-Q;const tk=new THREE.Mesh(new THREE.CylinderGeometry(t,t,3,8),new THREE.MeshLambertMaterial({color:0x5a3d28}));tk.position.set(x,h+1.5,y);S.add(tk);const cn=new THREE.Mesh(new THREE.SphereGeometry(r*.55,16,12),new THREE.MeshLambertMaterial({color:0x4f8a4a,transparent:true,opacity:.35}));cn.position.set(x,h+3+r*.4,y);S.add(cn);const rg=new THREE.Mesh(new THREE.RingGeometry(r-.08,r,48),new THREE.MeshBasicMaterial({color:0x2f7d4f,side:2}));rg.rotation.x=-Math.PI/2;rg.position.set(x,h+.15,y);S.add(rg)}
+let G=new THREE.Group(),cur=0;
+function show(i){cur=i;S.remove(G);G=new THREE.Group();S.add(G);let cos=0,cus=0,top=0,ok=true,ter=0;
+for(const[x0,y0,x1,y1,zb,h,t]of AL[i].b){const w=x1-x0,d=y1-y0;
+if(![[x0,y0],[x1,y0],[x1,y1],[x0,y1]].every(p=>inP(p[0],p[1],En)))ok=false;
+const fl=t=='t'||t=='u';let base=zb;if(!fl)base=Math.min(zb,hgt(x0,y0),hgt(x1,y0),hgt(x0,y1),hgt(x1,y1),hgt((x0+x1)/2,(y0+y1)/2))-.3;
+const H=zb+h-base,ge=new THREE.BoxGeometry(w,H,d),m=new THREE.Mesh(ge,new THREE.MeshLambertMaterial({color:COL[t]}));
+m.position.set(x0+w/2,base+H/2-Q,y0+d/2);G.add(m);const e=new THREE.LineSegments(new THREE.EdgesGeometry(ge),new THREE.LineBasicMaterial({color:0x2a2420}));e.position.copy(m.position);G.add(e);
+if(t=='t')ter+=w*d;else{cus+=w*d*Math.max(1,Math.round(h/3.1));if(!fl)cos+=w*d}top=Math.max(top,zb+h)}
+const mx=AREA*.8,cx=AREA*1.6,ht=top-Z0,f=(c,t)=>`<span class="${c?'ok':'bad'}">${t}</span>`;
+document.getElementById('i').innerHTML=`<p style="margin:4px 0">${AL[i].d}</p><table>
+<tr><td>COS (desplante)</td><td>${cos.toFixed(0)} m² · ${(cos/AREA).toFixed(2)} ${f(cos<=mx,cos<=mx?'≤ 0.80':'excede')}</td></tr>
+<tr><td>CUS (construcción)</td><td>${cus.toFixed(0)} m² · ${(cus/AREA).toFixed(2)} ${f(cus<=cx,cus<=cx?'≤ 1.60':'excede')}</td></tr>
+<tr><td>Altura sobre cota de origen</td><td>${ht.toFixed(1)} m ${f(top<=ZM,top<=ZM?'≤ 9.00':'excede')}</td></tr>
+<tr><td>Dentro de envolvente −3 m</td><td>${f(ok,ok?'sí':'revisar')}</td></tr>
+<tr><td>Terraza de eventos (50 pers.)</td><td>${ter.toFixed(0)} m²</td></tr></table>
+<p style="margin:8px 0 0"><small>Terreno aproximado a partir de cotas y dimensiones del plano; no incluye aún frente ajardinado 20 %, programa por local ni 4 cajones verificados con radios. Guaje blanco: a reubicar si choca.</small></p>`;
+[...document.querySelectorAll('#bt button')].forEach((b,k)=>b.classList.toggle('on',k==i))}
+AL.forEach((a,k)=>{const b=document.createElement('button');b.textContent=a.n;b.onclick=()=>show(k);document.getElementById('bt').appendChild(b)});
+let az=.5,el=.6,dist=58;const T=new THREE.Vector3(15,3,13);
+function upd(){cam.position.set(T.x+dist*Math.cos(el)*Math.sin(az),T.y+dist*Math.sin(el),T.z+dist*Math.cos(el)*Math.cos(az));cam.lookAt(T);R.render(S,cam)}
+function rs(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();upd()}
+addEventListener('resize',rs);const pt=new Map();let pd=0;
+cv.onpointerdown=e=>{cv.setPointerCapture(e.pointerId);pt.set(e.pointerId,[e.clientX,e.clientY])};
+cv.onpointerup=cv.onpointercancel=e=>{pt.delete(e.pointerId);pd=0};
+cv.onpointermove=e=>{if(!pt.has(e.pointerId))return;const o=pt.get(e.pointerId);
+if(pt.size==1){az-=(e.clientX-o[0])*.008;el=Math.max(.08,Math.min(1.5,el+(e.clientY-o[1])*.006))}
+else{pt.set(e.pointerId,[e.clientX,e.clientY]);const v=[...pt.values()],d=Math.hypot(v[0][0]-v[1][0],v[0][1]-v[1][1]);if(pd)dist=Math.max(15,Math.min(140,dist*pd/d));pd=d}
+pt.set(e.pointerId,[e.clientX,e.clientY]);upd()};
+cv.onwheel=e=>{e.preventDefault();dist=Math.max(15,Math.min(140,dist*(1+e.deltaY*.001)));upd()};
+show(0);rs();
+</script></body></html>

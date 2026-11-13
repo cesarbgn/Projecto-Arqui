@@ -1,0 +1,154 @@
+PDF
+
+PDF
+
+ayudame a hacer una maqueta volumetrica para este terreno que cumpla con todas las especificaciones, hazlo como si fueras un muy buen arquitecto, como lo podrias hacer tu? aun no hagas nada
+
+Todavía no hago nada. Así lo abordaría, para que me digas si estás de acuerdo.
+
+1. Lo que entiendo del terreno y las reglas
+Terreno: 812.20 m², con una pendiente fuerte. Baja de ~1691.35 en la calle (arriba en el plano) a ~1683.05 al fondo, unos 8 m de desnivel. Hacia el fondo las curvas se juntan mucho, así que hay zona muy empinada o con corte.
+COS 0.80: máximo 649.76 m² de desplante.
+CUS 1.60: máximo 1,299.52 m² de construcción.
+Altura: 9 m desde la cota de origen (1691.35) da un plano máximo en 1700.35. Como el terreno cae 8 m, esa altura casi no limita.
+Lo que sí limita: los 3 m de servidumbre por todos lados, la pendiente y los tres árboles (guamúchil, guaje blanco y mezquite). Por eso el COS y el CUS no serán el problema, y lo que va a definir la forma de la casa es el terreno.
+Contexto: la vista abre hacia la ciudad (probablemente al poniente, donde Alonso vería la puesta de sol) y hay un vecino con muro ciego de concreto en un costado.
+2. Cómo lo trabajaría
+Reconstruir el terreno con precisión. Extraigo las curvas de nivel y el polígono del PDF, los calibro con las cotas y dimensiones, y calculo la envolvente edificable (polígono menos 3 m) y el plano de altura máxima.
+Traducir la familia a un diagrama de relaciones.
+La cocina es el centro, con vista a comedor, sala, terraza y asador (Ana).
+El escritorio de Chak queda en un punto con vista a la familia pero protegido.
+Ela hace la tarea con la familia y tiene jardín a su cuidado.
+El ejercicio es familiar y cerca del baño principal.
+La habitación flexible, junto a la principal, sirve como cuarto de Liv hoy y como uso múltiple después.
+Estrategia (partido): una casa que baja con la ladera, en plataformas paralelas a las curvas para mover poca tierra.
+Se entra por arriba, y los 4 autos van a nivel de calle con el 20% de frente ajardinado.
+Los niveles intermedios son la zona social y la privada.
+El nivel bajo es mirador y terraza para el evento de 50 personas, con baño y cocina exterior.
+El guamúchil queda como patio central, no como estorbo.
+Probar 3 alternativas volumétricas y compararlas con criterios claros: vistas, asoleamiento, privacidad, relación con los árboles, movimiento de tierra y cumplimiento. Elegiría una y la justificaría.
+Tabla de cumplimiento: COS, CUS, altura, servidumbres, frente ajardinado y programa completo con m² por espacio. El programa suma de orden de magnitud ~380–420 m² interiores y 100–150 m² exteriores, que lo confirmaría al dimensionar.
+Maqueta 1:50: por la escala del dibujo, el terreno ronda los 35 × 27 m, así que la base sería de unos 70 × 55 cm más contexto. Te prepararía:
+un modelo 3D interactivo para girarlo y revisar;
+plantas, cortes y alzados de estudio;
+archivos de corte por capa (topografía cada 0.50 m = 1 cm de espesor), volúmenes por nivel y árboles a escala (el guamúchil sale de ~24 cm de diámetro).
+
+Yo no puedo armar la maqueta física, pero sí dejarte todo listo para cortarla o imprimirla.
+
+3. Supuestos que daría por buenos (corrígeme si no)
+La cota de origen es 1691.35 y los 9 m se miden desde ahí.
+Los 3 m de servidumbre aplican también al lado de la calle.
+El 20% de frente ajardinado se mide sobre la franja frontal.
+Si el plano no trae norte, lo oriento con la vista satelital.
+
+Esta maqueta volumétrica es la etapa de estudio. Los materiales y texturas del entregable final se resolverían después.
+
+¿Quieres que empiece por la lectura del terreno y la envolvente edificable, o prefieres que te muestre primero las tres alternativas de partido?
+
+Quiero que mi postura arquitectónica sea estereotómica, abierta, semipública, dinámica y ortogonal. Y los fundamentos que quiero que tenga el proyecto es movimiento, transición, armonía, ritmo, al usuario Alonso que me dé solidez y resguardo, Ana busca el centro por la cocina y que sea permeable, de Ela, el movimiento y la integración, Chak, la protección y privacidad.
+
+Con esa postura el proyecto tiene una dirección clara. Así cambia mi planteamiento.
+
+Cómo leo tu postura
+
+La tensión central es estereotómica vs. abierta y permeable. Estereotómico significa masa pesada y continua, que parece excavada en la tierra. Abierto y permeable parece lo contrario. Lo resolvería así: una masa sólida que se talla y se corta, donde la apertura son los vacíos (patios, cortes de luz, miradores) y no muros de vidrio. La ladera ayuda mucho, porque la casa puede hundirse en el terreno y abrirse solo hacia la vista.
+
+Estereotómica: muros de carga o contención de concreto o piedra, volumen que nace del corte del terreno y plataformas que bajan con la pendiente.
+Ortogonal: una sola retícula rotada para alinearse con las curvas de nivel o con la calle. La elegiré comparando cuál mueve menos tierra y mejor aprovecha la envolvente.
+Dinámica: volúmenes ortogonales desfasados entre niveles, con recorridos en diagonal visual, rampas y escaleras como columna vertebral.
+Semipública: gradiente de umbrales, de la calle (cerrada y sólida) al zaguán, la zona social y el mirador, hasta la terraza de eventos para 50 personas.
+Cómo se traducen tus fundamentos
+Movimiento y transición: la casa se entiende bajando. Cada nivel es una transición de lo cerrado y protegido (arriba, junto a la calle) a lo abierto y luminoso (abajo, hacia el valle).
+Ritmo: un módulo estructural constante (por ejemplo 3.00 o 3.60 m) con una alternancia de macizo y vacío. Se leerá en alzados, maqueta y cortes.
+Armonía: pocos materiales y una sola lógica geométrica, con variaciones de escala en lugar de más formas.
+Por usuario
+Usuario	Idea espacial
+Alonso (solidez, resguardo)	Muros gruesos de contención como respaldo de la casa. Su descanso es un mirador al poniente, protegido por masa detrás y abierto al frente. El asador va en la terraza baja.
+Ana (centro, permeable)	La cocina en el corazón del recorrido, entre la entrada, el patio del guamúchil y el comedor. Tiene vistas cruzadas a todo y se conecta con la cocina exterior.
+Ela (movimiento, integración)	La escalera-rampa pasa junto a su zona de tarea y a las terrazas con plantas. Las jardineras a su cargo recorren los niveles.
+Chak (protección, privacidad)	Un escritorio-nicho excavado, con una ventana-rendija hacia el espacio familiar. Ve a su familia sin ser visto, y el ejercicio con Alonso queda cerca.
+Alternativas de partido ajustadas
+Escalonada: plataformas ortogonales desfasadas que siguen las curvas, con cubiertas que son terrazas del nivel superior.
+Excavada con patio: una masa compacta tallada alrededor del guamúchil, que funciona como vacío central y lugar de Ana.
+Espina: un eje de circulación largo, tipo rampa o galería, con las estancias colgadas a ambos lados, como secuencia de ritmo.
+
+Las tres cumplen la misma postura y los mismos fundamentos, y se diferencian en cómo ordenan el movimiento.
+
+¿Te parece bien esta traducción? Si sí, empiezo por la lectura del terreno y la envolvente edificable, y de ahí te muestro las tres alternativas.
+
+hazlo
+
+Planificando el terreno y la envolvente edificable.
+
+Eligiendo la herramienta de publicación del modelo 3D.
+
+Reconstruyendo el perímetro del terreno a partir de las cotas.
+
+Comprobando el área del polígono frente a la superficie indicada.
+
+Ajustando el polígono del terreno con las dimensiones de los lados.
+
+Escalando el polígono para igualar el área indicada.
+
+Modelando las cotas del terreno como superficie de elevación.
+
+Diseñando tres volúmenes escalonados dentro de la envolvente.
+
+Calculando el volumen del modelo en tres niveles.
+
+Definiendo los tres niveles de piso y sus programas.
+
+Ubicando los volúmenes y la terraza en la envolvente.
+
+Evaluando el tamaño del patio junto al árbol existente.
+
+Ajustando la posición de la cochera y el volumen social.
+
+Ajustando las áreas del programa para alcanzar la superficie buscada.
+
+Ajustando las áreas del programa a la superficie buscada.
+
+Definiendo el puente y los volúmenes del patio.
+
+Ajustando la disposición de los volúmenes en torno al patio.
+
+Verificando la envolvente y el cálculo de COS y CUS.
+
+Verificando los polígonos de los volúmenes contra la envolvente.
+
+Ajustando las coordenadas de los vértices del terreno.
+
+Modelando el terreno con interpolación de cotas.
+
+Creando el modelo 3D con terreno, volúmenes y verificaciones de cumplimiento.
+
+Escribiendo el código HTML de la maqueta interactiva.
+
+Revisando el modelo de terreno con puntos de cota.
+
+Ajustando las alternativas de volúmenes y comprobando la envolvente.
+
+Comprobando el cumplimiento de la envolvente en cada alternativa.
+
+Revisando la cobertura del programa frente a la volumetría.
+
+Ajustando el código del render 3D del terreno y los volúmenes.
+
+Ajustando el código de la maqueta: colores, cámara y controles.
+
+Maqueta volumétrica · Paisaje del Sur 3488
+Artefacto
+·Solo tú
+
+Publiqué la maqueta volumétrica 3D con las tres alternativas (Escalonada, Excavada con patio y Espina), que puedes girar y acercar. Cada una muestra su COS, CUS, altura y si cabe en la envolvente de −3 m. El terreno, los volúmenes y las tres alternativas son una primera aproximación mía. Aún no revisé la página publicada ni la ejecuté, así que ábrela y dime si algo no se ve o no funciona.
+
+Supuestos y límites:
+
+Terreno aproximado: lo reconstruí con las cotas y dimensiones del plano, no curva por curva. Se ajusta a 812.20 m², pero para el definitivo hay que usar tu CAD.
+Cumplimiento: las tres quedan muy por debajo de COS 0.80 y CUS 1.60, y a menos de 9 m sobre la cota 1691.35. Con las curvas de nivel en el plano, la forma la define el terreno y no los índices.
+Árboles: el guamúchil se conserva como vacío central. El guaje blanco queda cerca de la cochera y habría que reubicarlo si choca.
+Pendiente por resolver: las cocheras quedan a nivel de calle y los volúmenes se hunden en la ladera. La zona muy empinada del fondo aún no está resuelta.
+
+Falta cerrar el programa: los volúmenes cubren ~270–350 m² y el programa pide ~410 m², además del frente ajardinado del 20 % y los 4 cajones.
+
+¿Con cuál alternativa sigo para dimensionar los espacios?
